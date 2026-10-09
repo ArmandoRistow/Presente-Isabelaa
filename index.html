@@ -10,6 +10,10 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 50%, #ffb3c1 100%);
@@ -105,7 +109,7 @@
     </div>
   </div>
 
-  <!-- Audio Element apontando para o ficheiro MP3 carregado -->
+  <!-- Audio Element -->
   <audio id="bg-music" loop>
     <source src="Me Botou no Bolso - Ao Vivo_spotdown.org.mp3" type="audio/mpeg">
   </audio>
@@ -172,101 +176,4 @@
 
     <!-- MENU TIPO CARDÁPIO ROMÂNTICO -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      <div onclick="scrollToSection('secao-entrada')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Entrada</span>
-            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Primeiras Memórias 🥂</h4>
-            <p class="text-sm text-gray-500 mt-1">Onde tudo começou e nossos primeiros passos juntos.</p>
-          </div>
-          <span class="text-3xl">✨</span>
-        </div>
-      </div>
-
-      <div onclick="scrollToSection('secao-prato-principal')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Prato Principal</span>
-            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Galeria & Viagens 📸</h4>
-            <p class="text-sm text-gray-500 mt-1">Os melhores cliques, passeios e sorrisos compartilhados.</p>
-          </div>
-          <span class="text-3xl">🌹</span>
-        </div>
-      </div>
-
-      <div onclick="scrollToSection('secao-sobremesa')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Sobremesa</span>
-            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Razões Te Amo 🍓</h4>
-            <p class="text-sm text-gray-500 mt-1">Pequenos detalhes cotidianos que me fazem te amar tanto.</p>
-          </div>
-          <span class="text-3xl">🍰</span>
-        </div>
-      </div>
-
-      <div onclick="scrollToSection('secao-carta')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Carta Especial</span>
-            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Mensagem do Coração 💌</h4>
-            <p class="text-sm text-gray-500 mt-1">Uma declaração sincera escrita especialmente para você.</p>
-          </div>
-          <span class="text-3xl">🎁</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- SEÇÕES COMPLETAS -->
-    <section id="secao-entrada" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200">
-      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
-        <span class="text-3xl">🥂</span>
-        <div>
-          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Entrada: Primeiras Memórias</h3>
-          <p class="text-xs text-gray-500">Nossos primeiros momentos e a mágica do início</p>
-        </div>
-      </div>
-
-      <div class="space-y-4">
-        <div class="bg-white/70 p-4 rounded-xl border border-pink-100 flex gap-4 items-center">
-          <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center shrink-0 text-xl">
-            <i class="fa-solid fa-comments"></i>
-          </div>
-          <div>
-            <h5 class="font-bold text-gray-800">A Primeira Conversa</h5>
-            <p class="text-sm text-gray-600">Aquele momento especial onde eu já estava totalmente apaixonado por você!</p>
-          </div>
-        </div>
-
-        <div class="bg-white/70 p-4 rounded-xl border border-pink-100 flex gap-4 items-center">
-          <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center shrink-0 text-xl">
-            <i class="fa-solid fa-heart"></i>
-          </div>
-          <div>
-            <h5 class="font-bold text-gray-800">Nossos Momentos Juntos</h5>
-            <p class="text-sm text-gray-600">Cada segundo ao seu lado é inesquecível e guarda uma memória única no meu coração.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="secao-prato-principal" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200">
-      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
-        <span class="text-3xl">📸</span>
-        <div>
-          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Prato Principal: Nossas Fotos</h3>
-          <p class="text-xs text-gray-500">Mural de fotos dos nossos momentos inesquecíveis</p>
-        </div>
-      </div>
-
-      <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <!-- Injetado via JS -->
-      </div>
-    </section>
-
-    <section id="secao-sobremesa" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200">
-      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
-        <span class="text-3xl">🍓</span>
-        <div>
-          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Sobremesa: Razões Pelas Quais Te Amo</h3>
-          <p class="text-
+      <div onclick="scrollToSection('secao-entrada')" class="glass-menu-item p-6 rounded-
