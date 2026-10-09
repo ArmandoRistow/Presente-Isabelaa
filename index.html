@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-
-    html {
-      scroll-behavior: smooth;
-    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -55,6 +51,7 @@
     .glass-menu-item {
       background: rgba(255, 255, 255, 0.9);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: block;
     }
 
     .glass-menu-item:hover {
@@ -171,9 +168,4 @@
           <span class="text-xs text-gray-500 font-medium">Segundos</span>
         </div>
       </div>
-      <p id="start-date-text" class="text-xs text-rose-400 mt-3 font-medium">Desde o dia em que nossa história começou! ❤️</p>
-    </section>
-
-    <!-- MENU TIPO CARDÁPIO ROMÂNTICO -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      <div onclick="scrollToSection('secao-entrada')" class="glass-menu-item p-6 rounded-
+      <p id="start-date-text" class="text-xs text-rose-400 mt-3 font-medium">Desde o dia em que nossa
