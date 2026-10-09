@@ -21,7 +21,6 @@
       font-family: 'Dancing Script', cursive;
     }
 
-    /* Floating Hearts Background */
     .heart-particle {
       position: fixed;
       color: rgba(230, 57, 70, 0.4);
@@ -41,7 +40,6 @@
       }
     }
 
-    /* Glassmorphism Cards */
     .glass-card {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
@@ -60,12 +58,10 @@
       box-shadow: 0 12px 20px rgba(229, 56, 84, 0.25);
     }
 
-    /* Smooth Fade Transitions */
     .screen-fade {
       transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -77,7 +73,6 @@
       border-radius: 4px;
     }
 
-    /* Pulsing Glow Effect */
     .pulse-glow {
       animation: pulseGlow 2s infinite alternate;
     }
@@ -99,4 +94,348 @@
   <!-- Top Audio Control Widget -->
   <div id="audio-widget" class="fixed top-4 right-4 z-50 transition-all duration-500 opacity-0 transform translate-y-[-20px]">
     <div class="glass-card flex items-center gap-3 px-4 py-2.5 rounded-full border border-pink-200 shadow-lg">
-      <button id="play-pause-btn" onclick="toggleAudio()" class="w-10 h-10 bg-rose-500 hover:bg-rose-600 text-white rounded-full flex items-center justify-center transition
+      <button id="play-pause-btn" onclick="toggleAudio()" class="w-10 h-10 bg-rose-500 hover:bg-rose-600 text-white rounded-full flex items-center justify-center transition shadow-md">
+        <i id="play-icon" class="fa-solid fa-play text-sm"></i>
+      </button>
+      <div class="text-xs">
+        <p id="song-title" class="font-semibold text-rose-700 truncate max-w-[120px] sm:max-w-[160px]">Nossa Música ❤️</p>
+        <p id="song-artist" class="text-gray-500 text-[10px]">Trilha Sonora do Amor</p>
+      </div>
+      <i class="fa-solid fa-music text-rose-400 text-sm animate-bounce ml-1"></i>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- 1. TELA INICIAL (LANDING PAGE) -->
+  <section id="welcome-screen" class="min-h-screen flex flex-col items-center justify-center p-6 text-center relative z-10 screen-fade">
+    <div class="glass-card max-w-lg w-full p-8 md:p-12 rounded-3xl border-2 border-pink-200 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-300 rounded-full blur-2xl opacity-50"></div>
+      <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-400 rounded-full blur-2xl opacity-40"></div>
+
+      <div class="relative z-10">
+        <div class="inline-block p-4 bg-rose-100 rounded-full mb-6 text-rose-500 animate-pulse">
+          <i class="fa-solid fa-gift text-4xl"></i>
+        </div>
+        <h1 class="font-cursive text-5xl sm:text-6xl text-rose-600 font-bold mb-4 drop-shadow-sm">
+          Um Presente Para o Meu Mozão ❤️
+        </h1>
+        <p class="text-gray-600 text-sm sm:text-base mb-8 leading-relaxed">
+          Preparei este cantinho especial com todo carinho do mundo para celebrar o nosso amor e guardar nossas melhores memórias!
+        </p>
+
+        <button onclick="openGift()" class="pulse-glow bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 mx-auto">
+          <span>Clique para Abrir ❤️</span>
+          <i class="fa-solid fa-sparkles"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content" class="hidden min-h-screen pb-16 pt-6 px-4 max-w-4xl mx-auto relative z-10 opacity-0 transition-opacity duration-700">
+
+    <header class="text-center mb-10">
+      <h2 class="font-cursive text-4xl sm:text-5xl text-rose-600 font-bold mb-2">Cardápio de Momentos 📜</h2>
+      <p class="text-rose-400 text-sm sm:text-base">Uma degustação especial de tudo o que vivemos juntos</p>
+    </header>
+
+    <!-- CONTADOR -->
+    <section class="glass-card rounded-2xl p-6 mb-10 text-center border border-pink-200">
+      <h3 class="text-rose-600 text-lg font-semibold mb-3 flex items-center justify-center gap-2">
+        <i class="fa-solid fa-clock"></i> Juntos Para Sempre
+      </h3>
+      
+      <div id="counter-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-lg mx-auto">
+        <div class="bg-rose-50/80 p-3 rounded-xl border border-rose-100">
+          <span id="counter-days" class="block font-bold text-2xl sm:text-3xl text-rose-600">0</span>
+          <span class="text-xs text-gray-500 font-medium">Dias</span>
+        </div>
+        <div class="bg-rose-50/80 p-3 rounded-xl border border-rose-100">
+          <span id="counter-hours" class="block font-bold text-2xl sm:text-3xl text-rose-600">0</span>
+          <span class="text-xs text-gray-500 font-medium">Horas</span>
+        </div>
+        <div class="bg-rose-50/80 p-3 rounded-xl border border-rose-100">
+          <span id="counter-minutes" class="block font-bold text-2xl sm:text-3xl text-rose-600">0</span>
+          <span class="text-xs text-gray-500 font-medium">Minutos</span>
+        </div>
+        <div class="bg-rose-50/80 p-3 rounded-xl border border-rose-100">
+          <span id="counter-seconds" class="block font-bold text-2xl sm:text-3xl text-rose-600">0</span>
+          <span class="text-xs text-gray-500 font-medium">Segundos</span>
+        </div>
+      </div>
+      <p id="start-date-text" class="text-xs text-rose-400 mt-3 font-medium">Desde o dia em que nossa história começou! ❤️</p>
+    </section>
+
+    <!-- MENU -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div onclick="scrollToSection('secao-entrada')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Entrada</span>
+            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Primeiras Memórias 🥂</h4>
+            <p class="text-sm text-gray-500 mt-1">Onde tudo começou e nossos primeiros passos juntos.</p>
+          </div>
+          <span class="text-3xl">✨</span>
+        </div>
+      </div>
+
+      <div onclick="scrollToSection('secao-prato-principal')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Prato Principal</span>
+            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Galeria & Viagens 📸</h4>
+            <p class="text-sm text-gray-500 mt-1">Os melhores cliques, passeios e sorrisos compartilhados.</p>
+          </div>
+          <span class="text-3xl">🌹</span>
+        </div>
+      </div>
+
+      <div onclick="scrollToSection('secao-sobremesa')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Sobremesa</span>
+            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Razões Te Amo 🍓</h4>
+            <p class="text-sm text-gray-500 mt-1">Pequenos detalhes cotidianos que me fazem te amar tanto.</p>
+          </div>
+          <span class="text-3xl">🍰</span>
+        </div>
+      </div>
+
+      <div onclick="scrollToSection('secao-carta')" class="glass-menu-item p-6 rounded-2xl border border-pink-200 cursor-pointer relative overflow-hidden group">
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Carta Especial</span>
+            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Mensagem do Coração 💌</h4>
+            <p class="text-sm text-gray-500 mt-1">Uma declaração sincera escrita especialmente para você.</p>
+          </div>
+          <span class="text-3xl">🎁</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÕES -->
+    <section id="secao-entrada" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200">
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">🥂</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Entrada: Primeiras Memórias</h3>
+          <p class="text-xs text-gray-500">Nossos primeiros momentos e a mágica do início</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white/70 p-4 rounded-xl border border-pink-100 flex gap-4 items-center">
+          <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-gray-800">A Primeira Conversa</h5>
+            <p class="text-sm text-gray-600">Aquele momento especial onde eu já estava totalmente apaixonado por você!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="secao-prato-principal" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200">
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">📸</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Prato Principal: Nossas Fotos</h3>
+          <p class="text-xs text-gray-500">Mural de fotos dos nossos momentos inesquecíveis</p>
+        </div>
+      </div>
+      <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </section>
+
+    <section id="secao-sobremesa" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200">
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">🍓</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Sobremesa: Razões Pelas Quais Te Amo</h3>
+          <p class="text-xs text-gray-500">Alguns dos infinitos motivos que me fazem apaixonar todos os dias</p>
+        </div>
+      </div>
+      <ul id="reasons-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></ul>
+    </section>
+
+    <section id="secao-carta" class="glass-card rounded-3xl p-6 sm:p-10 mb-10 border border-pink-200 relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-6 text-pink-200 opacity-30 text-8xl pointer-events-none">
+        <i class="fa-solid fa-envelope-open-text"></i>
+      </div>
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">💌</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Carta Aberta do Meu Coração</h3>
+          <p class="text-xs text-gray-500">Palavras sinceras de quem te ama incondicionalmente</p>
+        </div>
+      </div>
+      <div class="prose max-w-none text-gray-700 leading-relaxed text-sm sm:text-base space-y-4 bg-white/60 p-6 rounded-2xl border border-pink-100">
+        <p>Meu amor,</p>
+        <p>Escrevo esta mensagem para te lembrar o quanto você transforma meus dias em algo mais leve, doce e especial.</p>
+        <p class="font-cursive text-2xl text-rose-600 text-right mt-6">Com todo o meu amor, para sempre. ❤️</p>
+      </div>
+    </section>
+
+    <footer class="text-center py-6 text-xs text-rose-500">
+      Feito com amor ❤️ especialmente para você!
+    </footer>
+  </main>
+
+  <div id="photo-modal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closePhotoModal()">
+    <div class="max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+      <button onclick="closePhotoModal()" class="absolute top-3 right-3 bg-rose-500 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 hover:bg-rose-600">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="modal-img" src="" alt="Foto expandida" class="w-full max-h-[75vh] object-contain bg-black">
+      <div class="p-4 bg-white text-center">
+        <p id="modal-caption" class="text-sm font-semibold text-rose-600 whitespace-pre-line"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DATA_INICIO_NAMORO = new Date(2023, 0, 15, 18, 0, 0);
+
+    const FOTOS_LISTA = [
+      { url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80", legenda: "ONDE EU JÁ ESTAVA APAIXONADO POR VOCÊ ❤️" },
+      { url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80", legenda: "NOSSA PRIMEIRA FOTO MESMO PECANDO EM NÃO TIRAR MUITAS KK!" },
+      { url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80", legenda: "NOSSO 'PRIMEIRO' SHOW DE MUITOS 🤘" },
+      { url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80", legenda: "NOSSA PRIMEIRA VIAGEM AINDA POR CIMA ACOMPANHADOS DA JUJU ❤️" },
+      { url: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=600&q=80", legenda: "A vista linda da praia na nossa primeira viagem! 🌊❤️" },
+      { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80", legenda: "NOSSO MOMENTO ONDE ESCOLHEMOS NOSSO 'BEM' MAIS PRECIOSO..." },
+      { url: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=80", legenda: "NOSSO FUTURO ❤️" }
+    ];
+
+    const MOTIVOS_LISTA = [
+      "Seu sorriso iluminado que transforma meu dia.",
+      "O carinho e paciência que você tem comigo.",
+      "Sua risada contagiante que é minha música favorita.",
+      "Como você se preocupa e cuida dos mínimos detalhes.",
+      "Nossos planos de futuro e os sonhos compartilhados.",
+      "O conforto inigualável do seu abraço no fim do dia."
+    ];
+
+    let isPlaying = false;
+    const audio = document.getElementById('bg-music');
+    const playIcon = document.getElementById('play-icon');
+
+    window.onload = function() {
+      createFloatingHearts();
+      initGallery();
+      initReasons();
+      startRelationshipCounter();
+    };
+
+    function createFloatingHearts() {
+      const container = document.getElementById('hearts-container');
+      const heartIcons = ['❤️', '💖', '💕', '💗', '🌹'];
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart-particle';
+        heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        heart.style.fontSize = (Math.random() * 12 + 16) + 'px';
+        container.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+      }, 500);
+    }
+
+    function openGift() {
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#e63946', '#ffb3c1', '#ff758f'] });
+      const welcomeScreen = document.getElementById('welcome-screen');
+      const mainContent = document.getElementById('main-content');
+      const audioWidget = document.getElementById('audio-widget');
+
+      welcomeScreen.style.opacity = '0';
+      welcomeScreen.style.transform = 'scale(0.95)';
+
+      setTimeout(() => {
+        welcomeScreen.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+        audioWidget.classList.remove('opacity-0', 'translate-y-[-20px]');
+        toggleAudio();
+        setTimeout(() => mainContent.classList.remove('opacity-0'), 50);
+      }, 600);
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        playIcon.className = 'fa-solid fa-play text-sm';
+      } else {
+        audio.play().catch(() => {});
+        playIcon.className = 'fa-solid fa-pause text-sm';
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function startRelationshipCounter() {
+      function updateCounter() {
+        const now = new Date();
+        const diff = now - DATA_INICIO_NAMORO;
+        document.getElementById('counter-days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('counter-hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        document.getElementById('counter-minutes').innerText = Math.floor((diff / (1000 * 60)) % 60);
+        document.getElementById('counter-seconds').innerText = Math.floor((diff / 1000) % 60);
+      }
+      updateCounter();
+      setInterval(updateCounter, 1000);
+    }
+
+    function initGallery() {
+      const container = document.getElementById('gallery-container');
+      container.innerHTML = '';
+      FOTOS_LISTA.forEach((foto) => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl overflow-hidden shadow-md border border-pink-100 hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer';
+        card.onclick = () => openPhotoModal(foto.url, foto.legenda);
+        card.innerHTML = `
+          <div class="h-48 overflow-hidden relative">
+            <img src="${foto.url}" alt="${foto.legenda}" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            <div class="absolute top-2 right-2 bg-white/80 backdrop-blur-xs px-2 py-1 rounded-full text-xs text-rose-500">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+          <div class="p-3 text-center">
+            <p class="text-xs text-gray-600 font-medium truncate">${foto.legenda}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function initReasons() {
+      const container = document.getElementById('reasons-list');
+      container.innerHTML = '';
+      MOTIVOS_LISTA.forEach((motivo, index) => {
+        const li = document.createElement('li');
+        li.className = 'bg-white/70 p-3.5 rounded-xl border border-pink-100 flex items-start gap-3 text-sm text-gray-700';
+        li.innerHTML = `<span class="text-rose-500 font-bold shrink-0">#${index + 1}</span><span>${motivo}</span>`;
+        container.appendChild(li);
+      });
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function openPhotoModal(url, legenda) {
+      document.getElementById('modal-img').src = url;
+      document.getElementById('modal-caption').innerText = legenda;
+      const modal = document.getElementById('photo-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closePhotoModal() {
+      const modal = document.getElementById('photo-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
