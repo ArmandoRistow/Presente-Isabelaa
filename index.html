@@ -403,14 +403,12 @@
     }
 
     function openGift() {
-      // 1. Efeito visual imediato
       try {
         if (typeof confetti === 'function') {
           confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#e63946', '#ffb3c1', '#ff758f'] });
         }
       } catch (e) {}
 
-      // 2. Transição imediata da tela sem depender da promessa do áudio
       const welcomeScreen = document.getElementById('welcome-screen');
       const mainContent = document.getElementById('main-content');
       const audioWidget = document.getElementById('audio-widget');
@@ -429,8 +427,23 @@
         if (audioWidget) audioWidget.classList.remove('opacity-0', 'translate-y-[-20px]');
       }, 500);
 
-      // 3. Tenta dar Play no áudio de forma segura
-      toggleAudio();
+      // Tenta dar Play com tratamento direto
+      startAudio();
+    }
+
+    function startAudio() {
+      const audio = document.getElementById('bg-music');
+      const playIcon = document.getElementById('play-icon');
+      if (!audio) return;
+
+      audio.play().then(() => {
+        if (playIcon) playIcon.className = 'fa-solid fa-pause text-sm';
+        isPlaying = true;
+      }).catch((err) => {
+        console.log("Autoplay bloqueado pelo navegador. O utilizador pode clicar no Play manual:", err);
+        if (playIcon) playIcon.className = 'fa-solid fa-play text-sm';
+        isPlaying = false;
+      });
     }
 
     function toggleAudio() {
@@ -443,17 +456,7 @@
         if (playIcon) playIcon.className = 'fa-solid fa-play text-sm';
         isPlaying = false;
       } else {
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-          playPromise.then(() => {
-            if (playIcon) playIcon.className = 'fa-solid fa-pause text-sm';
-            isPlaying = true;
-          }).catch((err) => {
-            console.log("Aviso de áudio:", err);
-            if (playIcon) playIcon.className = 'fa-solid fa-play text-sm';
-            isPlaying = false;
-          });
-        }
+        startAudio();
       }
     }
 
