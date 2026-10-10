@@ -107,9 +107,9 @@
     </div>
   </div>
 
-  <!-- Audio Element -->
-  <audio id="bg-music" loop preload="auto">
-    <source src="Me Botou no Bolso - Ao Vivo_spotdown.org.mp3" type="audio/mpeg">
+  <!-- Audio Element com o nome limpo -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
   <!-- 1. TELA INICIAL (LANDING PAGE) -->
@@ -211,4 +211,299 @@
         <div class="flex items-start justify-between">
           <div>
             <span class="inline-block bg-rose-100 text-rose-600 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-2">Carta Especial</span>
-            <h4 class="
+            <h4 class="text-xl font-bold text-gray-800 group-hover:text-rose-600 transition">Mensagem do Coração 💌</h4>
+            <p class="text-sm text-gray-500 mt-1">Uma declaração sincera escrita especialmente para você.</p>
+          </div>
+          <span class="text-3xl">🎁</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- SEÇÕES COMPLETAS -->
+    <section id="secao-entrada" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200 pt-8">
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">🥂</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Entrada: Primeiras Memórias</h3>
+          <p class="text-xs text-gray-500">Nossos primeiros momentos e a mágica do início</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white/70 p-4 rounded-xl border border-pink-100 flex gap-4 items-center">
+          <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-gray-800">A Primeira Conversa</h5>
+            <p class="text-sm text-gray-600">Aquele momento especial onde eu já estava totalmente apaixonado por você!</p>
+          </div>
+        </div>
+
+        <div class="bg-white/70 p-4 rounded-xl border border-pink-100 flex gap-4 items-center">
+          <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-gray-800">Nossos Momentos Juntos</h5>
+            <p class="text-sm text-gray-600">Cada segundo ao seu lado é inesquecível e guarda uma memória única no meu coração.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="secao-prato-principal" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200 pt-8">
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">📸</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Prato Principal: Nossas Fotos</h3>
+          <p class="text-xs text-gray-500">Mural de fotos dos nossos momentos inesquecíveis</p>
+        </div>
+      </div>
+
+      <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Injetado via JS -->
+      </div>
+    </section>
+
+    <section id="secao-sobremesa" class="glass-card rounded-3xl p-6 sm:p-8 mb-10 border border-pink-200 pt-8">
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">🍓</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Sobremesa: Razões Pelas Quais Te Amo</h3>
+          <p class="text-xs text-gray-500">Alguns dos infinitos motivos que me fazem apaixonar todos os dias</p>
+        </div>
+      </div>
+
+      <ul id="reasons-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- Injetado via JS -->
+      </ul>
+    </section>
+
+    <section id="secao-carta" class="glass-card rounded-3xl p-6 sm:p-10 mb-10 border border-pink-200 relative overflow-hidden pt-8">
+      <div class="absolute top-0 right-0 p-6 text-pink-200 opacity-30 text-8xl pointer-events-none">
+        <i class="fa-solid fa-envelope-open-text"></i>
+      </div>
+
+      <div class="flex items-center gap-3 mb-6 border-b border-pink-100 pb-4">
+        <span class="text-3xl">💌</span>
+        <div>
+          <h3 class="font-cursive text-3xl text-rose-600 font-bold">Carta Aberta do Meu Coração</h3>
+          <p class="text-xs text-gray-500">Palavras sinceras de quem te ama incondicionalmente</p>
+        </div>
+      </div>
+
+      <div id="carta-conteudo" class="prose max-w-none text-gray-700 leading-relaxed text-sm sm:text-base space-y-4 bg-white/60 p-6 rounded-2xl border border-pink-100">
+        <p>Meu amor,</p>
+        <p>
+          Escrevo esta mensagem para te lembrar o quanto você transforma meus dias em algo mais leve, doce e especial. Estar ao seu lado é viver em um constante porto seguro de paz e alegria.
+        </p>
+        <p>
+          Agradeço por cada gargalhada, por cada abraço aconchegante nos dias difíceis e por me apoiar em cada sonho. Você não é apenas minha namorada, é minha melhor amiga e meu grande amor.
+        </p>
+        <p>
+          Prometo continuar cuidando do nosso amor todos os dias com carinho, admiração e muito respeito. Te amo daqui até o infinito!
+        </p>
+        <p class="font-cursive text-2xl text-rose-600 text-right mt-6">Com todo o meu amor, para sempre. ❤️</p>
+      </div>
+    </section>
+
+    <footer class="text-center py-6 text-xs text-rose-500">
+      Feito com amor ❤️ especialmente para você!
+    </footer>
+
+  </main>
+
+  <!-- MODAL DE VISUALIZAÇÃO DA FOTO (ZOOM) -->
+  <div id="photo-modal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 backdrop-blur-sm" onclick="closePhotoModal()">
+    <div class="max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+      <button onclick="closePhotoModal()" class="absolute top-3 right-3 bg-rose-500 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 hover:bg-rose-600">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="modal-img" src="" alt="Foto expandida" class="w-full max-h-[75vh] object-contain bg-black">
+      <div class="p-4 bg-white text-center">
+        <h4 id="modal-title" class="font-bold text-base text-rose-600 mb-1"></h4>
+        <p id="modal-caption" class="text-xs text-gray-600 whitespace-pre-line"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const DATA_INICIO_NAMORO = new Date(2026, 3, 12, 0, 0, 0);
+
+    const FOTOS_LISTA = [
+      {
+        url: "foto1.jpeg",
+        titulo: "NOSSA PRIMEIRA CONVERSA",
+        legenda: "Onde eu já estava apaixonado por você ❤️"
+      },
+      {
+        url: "foto2.jpeg",
+        titulo: "NOSSA PRIMEIRA FOTO",
+        legenda: "Mesmo pecando em não tirar muitas kk todas que temos juntos são lindas!"
+      },
+      {
+        url: "foto3.jpeg",
+        titulo: "NOSSO PRIMEIRO SHOW",
+        legenda: "Nosso primeiro show de muitos 🤘"
+      },
+      {
+        url: "foto4.jpeg",
+        titulo: "NOSSA PRIMEIRA VIAGEM",
+        legenda: "Ainda por cima acompanhados da Juju ❤️"
+      },
+      {
+        url: "foto5.jpeg",
+        titulo: "NOSSA PRIMEIRA VIAGEM",
+        legenda: "A vista linda da praia na nossa primeira viagem 🌊❤️"
+      },
+      {
+        url: "foto6.jpeg",
+        titulo: "NOSSA ESCOLHA",
+        legenda: "Nosso momento onde escolhemos nosso bem mais precioso, onde eu já estava decidido sobre o que queria para minha vida...\nVocê! Para sempre...\nVocê.\nEu te amo muitão ❤️"
+      },
+      {
+        url: "foto7.jpeg",
+        titulo: "NOSSO FUTURO",
+        legenda: "Nosso futuro juntos ❤️"
+      }
+    ];
+
+    const MOTIVOS_LISTA = [
+      "Seu sorriso iluminado que transforma meu dia.",
+      "O carinho e paciência que você tem comigo.",
+      "Sua risada contagiante que é minha música favorita.",
+      "Como você se preocupa e cuida dos mínimos detalhes.",
+      "Nossos planos de futuro e os sonhos compartilhados.",
+      "O conforto inigualável do seu abraço no fim do dia."
+    ];
+
+    let isPlaying = false;
+    const audio = document.getElementById('bg-music');
+    const playIcon = document.getElementById('play-icon');
+
+    window.onload = function() {
+      createFloatingHearts();
+      initGallery();
+      initReasons();
+      startRelationshipCounter();
+    };
+
+    function createFloatingHearts() {
+      const container = document.getElementById('hearts-container');
+      const heartIcons = ['❤️', '💖', '💕', '💗', '🌹'];
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart-particle';
+        heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        heart.style.fontSize = (Math.random() * 12 + 16) + 'px';
+        container.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+      }, 500);
+    }
+
+    function openGift() {
+      try {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#e63946', '#ffb3c1', '#ff758f'] });
+      } catch (e) {}
+
+      const welcomeScreen = document.getElementById('welcome-screen');
+      const mainContent = document.getElementById('main-content');
+      const audioWidget = document.getElementById('audio-widget');
+
+      welcomeScreen.style.opacity = '0';
+      welcomeScreen.style.transform = 'scale(0.95)';
+
+      setTimeout(() => {
+        welcomeScreen.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+        audioWidget.classList.remove('opacity-0', 'translate-y-[-20px]');
+        toggleAudio();
+        setTimeout(() => mainContent.classList.remove('opacity-0'), 50);
+      }, 600);
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        playIcon.className = 'fa-solid fa-play text-sm';
+        isPlaying = false;
+      } else {
+        audio.play().then(() => {
+          playIcon.className = 'fa-solid fa-pause text-sm';
+          isPlaying = true;
+        }).catch(() => {
+          playIcon.className = 'fa-solid fa-play text-sm';
+          isPlaying = false;
+        });
+      }
+    }
+
+    function startRelationshipCounter() {
+      function updateCounter() {
+        const now = new Date();
+        const diff = now - DATA_INICIO_NAMORO;
+        document.getElementById('counter-days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('counter-hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        document.getElementById('counter-minutes').innerText = Math.floor((diff / (1000 * 60)) % 60);
+        document.getElementById('counter-seconds').innerText = Math.floor((diff / 1000) % 60);
+      }
+      updateCounter();
+      setInterval(updateCounter, 1000);
+    }
+
+    function initGallery() {
+      const container = document.getElementById('gallery-container');
+      container.innerHTML = '';
+      FOTOS_LISTA.forEach((foto) => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl overflow-hidden shadow-md border border-pink-100 hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between';
+        card.onclick = () => openPhotoModal(foto.url, foto.titulo, foto.legenda);
+        card.innerHTML = `
+          <div class="p-3 pb-1 text-center bg-rose-50/50 border-b border-pink-100">
+            <h5 class="font-bold text-xs text-rose-600 tracking-wide">${foto.titulo}</h5>
+          </div>
+          <div class="h-48 overflow-hidden relative">
+            <img src="${foto.url}" alt="${foto.titulo}" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+            <div class="absolute top-2 right-2 bg-white/80 backdrop-blur-xs px-2 py-1 rounded-full text-xs text-rose-500">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+          <div class="p-3 text-center">
+            <p class="text-xs text-gray-600 font-medium truncate">${foto.legenda}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function initReasons() {
+      const container = document.getElementById('reasons-list');
+      container.innerHTML = '';
+      MOTIVOS_LISTA.forEach((motivo, index) => {
+        const li = document.createElement('li');
+        li.className = 'bg-white/70 p-3.5 rounded-xl border border-pink-100 flex items-start gap-3 text-sm text-gray-700';
+        li.innerHTML = `<span class="text-rose-500 font-bold shrink-0">#${index + 1}</span><span>${motivo}</span>`;
+        container.appendChild(li);
+      });
+    }
+
+    function openPhotoModal(url, titulo, legenda) {
+      document.getElementById('modal-img').src = url;
+      document.getElementById('modal-title').innerText = titulo;
+      document.getElementById('modal-caption').innerText = legenda;
+      const modal = document.getElementById('photo-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closePhotoModal() {
+      const modal = document.getElementById('photo-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
